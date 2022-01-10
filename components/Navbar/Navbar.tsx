@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link href="/">
           <a><h1 className="tracking-wide font-semibold">mattie</h1></a>
         </Link>
-        <ul className="flex gap-12 dark:text-gray-500 text-gray-400">
+        <ul className="flex gap-12 dark:text-gray-400 text-gray-500">
           {links.map(({ href, label }) => (
             <li className="dark:hover:text-white px-2 transition-all" key={`${href}${label}`}>
               <Link href={href}>
