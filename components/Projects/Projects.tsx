@@ -1,7 +1,15 @@
 import Item from './Item'
 import { Tabs } from '@components/Tabs'
 
-const Projects = ({ projects } : {projects: any}) => {
+type Project = {
+  title: string
+  date: string
+  summary: string
+  thumbnail: string
+  slug: string
+}
+
+const Projects = ({ projects }: { projects: Project[] }) => {
   return (
     <section className="my-32">
       <Tabs>
@@ -13,7 +21,7 @@ const Projects = ({ projects } : {projects: any}) => {
         <Tabs.Panel value="0">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-y-24 gap-x-12 mt-12">
             {
-              projects?.map(p => {
+              projects?.map((p) => {
                 return <Projects.Item key={p.title} {...p} />
               })
             }
