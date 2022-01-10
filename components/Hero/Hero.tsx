@@ -25,7 +25,7 @@ const Hero = () => {
         <h2 className="text-3xl leading-relaxed max-w-prose mb-12 wrap">
           Hello! 안녕하세요! I&apos;m Mattie — a multi-disciplinary experience designer
           {""} with emphasis in <u className="underline decoration-4 underline-offset-2 decoration-yellow-400">🧑‍🚀 design systems</u>
-          {""} and <u className="underline decoration-4 underline-offset-2 decoration-blue-600">🛠front end development</u>.
+          {""} and <u className="underline decoration-4 underline-offset-2 decoration-blue-600">🛠 front end development</u>.
         </h2>
         <div className="relative">
           <div className=" w-full snap-x snap-mandatory overflow-x-scroll whitespace-nowrap flex lg:flex-wrap lg:overflow-hidden gap-4 pb-4 items-start">
