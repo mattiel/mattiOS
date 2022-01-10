@@ -16,7 +16,7 @@ const RevealElement: React.FC<RevealElementProps> = ({ children, className }) =>
       clipPath: 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)',
       opacity: 1,
       transition: {
-        ease: [0.40, 0.80, 0.90, 1],
+        easeIn: [0.4, 0.8, 0.9, 1],
         duration: .5,
       }
     }
