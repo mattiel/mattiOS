@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { useRef, useEffect, useState } from 'react';
+import {useRef, useEffect, useState, MutableRefObject} from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -33,15 +33,15 @@ const SpotifyIcon = () => {
 
 const NowPlaying = () => {
   const { data }  = useSWR<NowPlayingTypes>('/api/now-playing', url => fetch(url).then(res => res.json()));
-  const playerTitleRef = useRef<HTMLSpanElement>(null);
+  const playerTitleRef = useRef() as MutableRefObject<HTMLDivElement>
   const [ marquee, setMarquee ] = useState<boolean>(false);
   const [ marqueeNudge, setMarqueeNudge ] = useState<number>(0);
 
   useEffect(() => {
     if (data && playerTitleRef) {
-      const refParentWidth = playerTitleRef.current?.parentElement?.getBoundingClientRect().width;
       const refWidth = playerTitleRef.current?.getBoundingClientRect().width;
-      if(refWidth > refParentWidth + 5) {
+      const refParentWidth: any = playerTitleRef.current?.parentElement?.getBoundingClientRect().width;
+      if(refWidth > refParentWidth + 5 && refParentWidth !== undefined) {
         setMarquee(true);
         setMarqueeNudge(refParentWidth - refWidth - 40);
       } else {
