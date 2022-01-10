@@ -1,0 +1,50 @@
+@import url("https://use.typekit.net/isp4bhi.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: aktiv-grotesk,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply h-full
+}
+
+#__next {
+  min-height: 100vh;
+}
+
+body {
+  @apply dark:bg-black dark:text-white bg-white text-black
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr min(1024px, calc(100% - 2.5rem)) 1fr;
+    grid-gap: 1.25rem;
+  }
+
+  .layout > * {
+    grid-column: 2 / 3;
+  }
+
+  .layout > aside {
+    grid-column: 3 / 4;
+  }
+
+  .layout > nav {
+    grid-column: 1 / 2;
+  }
+}

@@ -35,3 +35,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+#intelliJ
+.idea
+
+
+# Contentlayer
+.contentlayer
