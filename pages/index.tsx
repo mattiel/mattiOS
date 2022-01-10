@@ -9,7 +9,7 @@ import React from "react";
 
 export async function getStaticProps() {
   const projects = allProjects
-    .map((project) => pick(project, ['title', 'thumbnail', 'slug', 'date']))
+    .map((project) => pick(project, ['title', 'date', 'thumbnail', 'slug']))
     .sort(
       (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
     );

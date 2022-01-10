@@ -4,7 +4,6 @@ import { Tabs } from '@components/Tabs'
 type Project = {
   title: string
   date: string
-  summary: string
   thumbnail: string
   slug: string
 }
