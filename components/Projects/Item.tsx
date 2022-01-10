@@ -20,7 +20,6 @@ const Item = ({ title, thumbnail, slug }: Pick<Project, 'title' | 'thumbnail' | 
         <figcaption className="flex flex-col space-y-1">
           <h3 className="text-xl text-black dark:text-white">{title}</h3>
         </figcaption>
-
       </a>
     </Link>
   )
