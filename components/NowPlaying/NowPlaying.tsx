@@ -1,7 +1,8 @@
-import useSWR from 'swr';
-import {useRef, useEffect, useState, MutableRefObject} from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import useSWR from 'swr'
+import {useRef, useEffect, useState, MutableRefObject} from 'react'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import clsx from 'clsx'
 
 export type NowPlayingTypes = {
   album: string;
@@ -51,7 +52,11 @@ const NowPlaying = () => {
   }, [data]);
 
   return  (
-    <div className={`inline-flex shrink-0 items-center rounded-full pl-2 pr-4 h-8 text-sm border transition-all duration-500 snap-x snap-start snap-mandatory ${data?.isPlaying ? 'bg-green-900 border-green-700' : 'bg-gray-900 border-gray-700'}`}>
+    <motion.div
+      className={clsx(
+      "inline-flex shrink-0 items-center rounded-full pl-2 pr-4 h-8 text-sm border transition-all duration-500 snap-x snap-start snap-mandatory",
+      data?.isPlaying ? 'spotify-pulse bg-green-50 border-green-200 dark:bg-green-900 dark:border-green-700' : 'bg-gray-100 border-gray-200 dark:bg-gray-900 dark:border-gray-700')}
+    >
       {
         data?.isPlaying ? (
           <a
@@ -76,11 +81,11 @@ const NowPlaying = () => {
                   x: [0, marqueeNudge, marqueeNudge, 0],
                   y: 0,
                   transition: {
-                    type: "linear",
+                    type: "tween",
                     duration: 20,
                     repeat: Infinity,
                     repeatDelay: 1,
-                    velocity: 1
+                    velocity: 0
                   }
                 }
               }}
@@ -92,8 +97,8 @@ const NowPlaying = () => {
             {
               marquee && (
                 <>
-                  <div className="absolute left-0 top-0 h-full w-1/6 pointer-events-none bg-gradient-to-r from-green-900" />
-                  <div className="absolute right-0 top-0 h-full w-1/12 pointer-events-none bg-gradient-to-l from-green-900" />
+                  <div className="absolute left-0 top-0 h-full w-1/6 pointer-events-none bg-gradient-to-r from-green-50 dark:from-green-900" />
+                  <div className="absolute right-0 top-0 h-full w-1/12 pointer-events-none bg-gradient-to-l from-green-50 dark:from-green-900" />
                 </>
               )
             }
@@ -105,7 +110,7 @@ const NowPlaying = () => {
           </>
         )
       }
-    </div>
+    </motion.div>
   )
 };
 
