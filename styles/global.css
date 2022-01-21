@@ -7,17 +7,17 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: aktiv-grotesk,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   @apply h-full
 }
 
-#__next {
-  min-height: 100vh;
-}
-
 body {
   @apply dark:bg-black dark:text-white bg-white text-black
+}
+
+#__next {
+  min-height: 100vh;
 }
 
 a {
@@ -27,6 +27,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  -webkit-appearance: none;
+  display: none !important;
+  width: 0;
+  height: 0
 }
 
 @layer components {
@@ -47,4 +54,66 @@ a {
   .layout > nav {
     grid-column: 1 / 2;
   }
+
+  .prose > a, p, h1, h2, h3, h4, h5, h6, span, caption, figcaption, blockquote, ul, li, dd, dt {
+    @apply max-w-prose relative
+  }
+
+  .prose .anchor {
+    @apply no-underline flex items-center relative
+  }
+
+  /*.prose [id]:before {*/
+  /*  content: '';*/
+  /*  @apply block pt-24 -mt-24 invisible -z-10 pointer-events-none*/
+  /*}*/
+
+  .prose .anchor:hover:after {
+    content: '';
+    background-size: 67% 67%;
+    @apply absolute left-0 w-6 h-6 rounded-md -ml-8 text-lg grid place-content-center dark:bg-gray-800 bg-no-repeat bg-center
+  }
+
+  .spotify-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(187,247,208, .8);
+    }
+    70% {
+      box-shadow: 0 0 0 .75rem rgba(187,247,208, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(187,247,208, 0);
+    }
+  }
+
+  @media(prefers-color-scheme: dark) {
+    .prose .anchor:hover:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='white'%3E %3Cpath fill-rule='evenodd' d='M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z' clip-rule='evenodd' /%3E %3C/svg%3E");
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.8);
+      }
+      70% {
+        box-shadow: 0 0 0 .75rem rgba(21, 128, 61, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(21, 128, 61, 0);
+      }
+    }
+  }
+
+  @media(prefers-color-scheme: light) {
+    .prose .anchor:hover:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='black'%3E %3Cpath fill-rule='evenodd' d='M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z' clip-rule='evenodd' /%3E %3C/svg%3E");
+    }
+
+  }
+
+
 }
