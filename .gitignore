@@ -39,6 +39,5 @@ yarn-error.log*
 #intelliJ
 .idea
 
-
 # Contentlayer
 .contentlayer
