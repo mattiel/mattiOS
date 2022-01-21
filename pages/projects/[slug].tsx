@@ -45,7 +45,7 @@ export default function ProjectPage({ project }: { project: Project }) {
       </aside>
       <RevealElement className="w-full aspect-video mt-32">
         <Image
-          src={`/${project.title}/hero.webp`}
+          src={`/${project.title.toLowerCase()}/hero.webp`}
           alt={project.title}
           width={1024}
           height={576}
