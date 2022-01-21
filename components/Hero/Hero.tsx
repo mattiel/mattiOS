@@ -22,18 +22,18 @@ const Hero = () => {
         >
           👋
         </motion.span>
-        <h2 className="text-3xl leading-relaxed max-w-prose mb-12 wrap">
+        <h2 className="text-3xl leading-relaxed max-w-prose">
           Hello! 안녕하세요! I&apos;m Mattie — a multi-disciplinary experience designer
           {""} with emphasis in <u className="underline decoration-4 underline-offset-2 decoration-yellow-400">🧑‍🚀 design systems</u>
           {""} and <u className="underline decoration-4 underline-offset-2 decoration-blue-600">🛠 front end development</u>.
         </h2>
         <div className="relative">
-          <div className=" w-full snap-x snap-mandatory overflow-x-scroll whitespace-nowrap flex lg:flex-wrap lg:overflow-hidden gap-4 pb-4 items-start">
-            <a className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory shrink-0 dark:bg-pink-900 dark:border-pink-700 border pl-2 pr-4 rounded-full">
+          <div className=" w-full snap-x snap-mandatory overflow-x-auto whitespace-nowrap flex lg:flex-wrap gap-4 pb-4 items-start pt-12">
+            <a className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory bg-gray-50 shrink-0 dark:bg-pink-900 dark:border-pink-700 border pl-2 pr-4 rounded-full">
               📍 Los Angeles, CA
             </a>
 
-            <a className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory shrink-0 dark:bg-blue-900 dark:border-blue-700 border pl-3 pr-4 rounded-full">
+            <a className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory bg-gray-50shrink-0 dark:bg-blue-900 dark:border-blue-700 border pl-3 pr-4 rounded-full">
               👀 For opportunities
             </a>
             <NowPlaying />
