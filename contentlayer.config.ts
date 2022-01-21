@@ -1,5 +1,7 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
-import rehypeHighlight from "rehype-highlight";
+import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 const computedFields: ComputedFields = {
   slug: {
@@ -25,6 +27,18 @@ export default makeSource({
   contentDirPath: 'data',
   documentTypes: [Project],
   mdx: {
-    rehypePlugins: [rehypeHighlight]
+    rehypePlugins: [
+      rehypeHighlight,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['anchor']
+          },
+          behavior: 'wrap'
+        }
+      ]
+    ]
   }
 })
