@@ -4,9 +4,12 @@ import { motion, Variants } from 'framer-motion'
 type RevealElementProps = {
   children: React.ReactNode
   className?: string
+  // loaded?: boolean
 }
 
 const RevealElement: React.FC<RevealElementProps> = ({ children, className }) => {
+  // const [isLoaded, setIsLoaded] = React.useState(loaded || true)
+
   const variants: Variants = {
     offscreen: {
       clipPath: 'polygon(0% 100%,100% 100%,100% 100%,0% 100%)',
