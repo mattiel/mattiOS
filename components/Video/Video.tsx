@@ -15,8 +15,8 @@ export enum VideoType {
 
 const Video: React.FC<VideoProps> = ({ src, width, height, type }) => {
   return (
-    <div className="w-full p-12 flex justify-center dark:bg-gray-900 bg-gray-50">
-      <video className="rounded-[2.25rem] overflow-hidden" autoPlay muted loop width={width} height={height}>
+    <div className="w-full p-8 flex justify-center dark:bg-zinc-900 bg-zinc-50">
+      <video className="rounded-[1.25rem] overflow-hidden" controls={false} playsInline autoPlay muted loop width={width} height={height}>
         <source src={src} type={`video/${type}`} />
       </video>
     </div>
