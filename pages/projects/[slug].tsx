@@ -4,58 +4,29 @@ import type { Project } from '.contentlayer/types'
 import Layout from '@components/Layout'
 import Image from 'next/image'
 import RevealElement from '@components/RevealElement'
+import Toc from '@components/Toc'
 import MDXComponents from '@components/MDXComponents'
 import React from "react";
-import clsx from 'clsx';
 
 export default function ProjectPage({ project }: { project: Project }) {
   const MDXContent = useMDXComponent(project.body.code)
-  const parse = () => {
-    return project.body.raw.split('\n').filter((line) => line.startsWith('#'))
-  }
 
   return (
     <Layout>
-      <aside className="hidden 2xl:block relative px-12 h-full w-full overflow-hidden max-w-xs">
-        <nav className="top-36 fixed">
-          <p className="text-white text-sm font-medium mb-4">
-            On this page
-          </p>
-          <ul className="">
-            {
-              parse().map((line, i) => {
-                const isSubHeader = line.startsWith('###')
-                const [, title] = line.split('# ')
-                return (
-                  <li key={i} className="">
-                    <a
-                      href={`#${title.toLowerCase().replace(/ /g, '-')}`}
-                      className={clsx(
-                        'dark:text-gray-400 dark:hover:text-white text-sm leading-snug',
-                        isSubHeader && 'ml-3'
-                      )}>
-                      {title}
-                    </a>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </nav>
-      </aside>
-      <RevealElement className="w-full aspect-video mt-32">
-        <Image
-          src={`/${project.title.toLowerCase()}/hero.webp`}
-          alt={project.title}
-          width={1024}
-          height={576}
-        />
-      </RevealElement>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-black dark:text-white mb-12">
-        <h1 className="font-semibold text-4xl mb-2">{project.title}</h1>
-        <p className="max-w-prose text-lg mb-6">{project.summary}</p>
-      </div>
-      <article className="prose lg:prose-xl dark:prose-invert max-w-screen-lg dark:prose-hr:bg-gradient-to-r dark:prose-hr:from-gray-800">
+      <Toc project={project} />
+      <article className="prose mx-auto dark:prose-invert w-full max-w-[calc(36em+36ex)] dark:prose-hr:bg-gradient-to-r dark:prose-hr:from-gray-800 mt-32">
+        <div className="grid grid-cols-1 gap-1 text-black dark:text-white not-prose">
+          <h1 className="font-semibold text-4xl mb-2">{project.title}</h1>
+          <p className="max-w-prose text-lg mb-6">{project.summary}</p>
+        </div>
+        <RevealElement className="w-full aspect-video">
+          <Image
+            src={`/${project.title.toLowerCase()}/hero.webp`}
+            alt={`${project.title} hero`}
+            width={1024}
+            height={576}
+          />
+        </RevealElement>
         <MDXContent components={{...MDXComponents as any}} />
       </article>
     </Layout>
