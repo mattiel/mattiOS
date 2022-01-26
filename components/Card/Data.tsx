@@ -16,10 +16,10 @@ export const Data: React.FC<DataProps> = ({ data}) => {
         data.map(item => {
           return (
             <dl className="self-start" key={item.label}>
-              <dt className="text-gray-500 dark:text-gray-400 text-base text-medium">
+              <dt className="text-gray-500 dark:text-gray-400 text-[1em] text-medium">
                 {item.label}
               </dt>
-              <dl className="text-4xl inline-block font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-purple-600 dark:from-pink-500  dark:to-purple-800">
+              <dl className="text-[2.25em] leading-normal inline-block font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-purple-600 dark:from-pink-500 dark:to-purple-800">
                 {item.value}
               </dl>
             </dl>

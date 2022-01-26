@@ -9,7 +9,7 @@ export interface DescProps {
 export const Desc: React.FC<DescProps> = ({children, className}) => {
   return (
     <p className={clsx(
-      "text-gray-800 dark:text-gray-300 leading-normal mb-6",
+      "text-gray-800 dark:text-gray-300 text-[1.125em] leading-normal mb-6",
       className
     )}>
       {children}
