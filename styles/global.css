@@ -39,7 +39,7 @@ a {
 @layer components {
   .layout {
     display: grid;
-    grid-template-columns: 1fr min(1024px, calc(100% - 2.5rem)) 1fr;
+    grid-template-columns: 1fr min(calc(36em + 36ex), calc(100% - 2.5rem)) 1fr;
     grid-gap: 1.25rem;
   }
 
@@ -55,9 +55,10 @@ a {
     grid-column: 1 / 2;
   }
 
-  .prose > a, p, h1, h2, h3, h4, h5, h6, span, caption, figcaption, blockquote, ul, li, dd, dt {
-    @apply max-w-prose relative
-  }
+  /*.prose > a, p, h1, h2, h3, h4, h5, h6, span, caption, figcaption, blockquote, ul, li, dd, dt {*/
+  /*  max-width: calc(36em + 36ex)*/
+  /*  !*@apply max-w-prose relative*!*/
+  /*}*/
 
   .prose .anchor {
     @apply no-underline flex items-center relative
@@ -112,8 +113,5 @@ a {
     .prose .anchor:hover:after {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='black'%3E %3Cpath fill-rule='evenodd' d='M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z' clip-rule='evenodd' /%3E %3C/svg%3E");
     }
-
   }
-
-
 }
