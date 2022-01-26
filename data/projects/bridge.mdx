@@ -5,76 +5,234 @@ summary: A personal server and a Wi-Fi router designed to protect user's privacy
 thumbnail: /thumbnails/bridge.webp
 ---
 
-<Video src="/bridge/videos/permit-request.mov" width={280} type="mp4" />
 
-## Sneak Peek
+## In a nutshell
 I've reimagined how people's private data are handled by the requesters such as companies and government agencies.
 Bridge aims to solve many problems users might face when browsing on the internet and sharing and storing data.
 
 * * *
 
-## Background
-
-
-### none
->Majority of Americans feel as if they have little control over data collected about them by companies and the government
-
-[*Pew Research Center*](https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/)
-
-<Scroller>
-  <Card>
-    <Card.Header>Lack of understanding about data use</Card.Header>
-    <Card.Desc>They have very little no understanding about what ___ do / does with the data collected.</Card.Desc>
-    <Card.Data data={[
-      {
-        label: 'Companies',
-        value: '59%'
-      },
-      {
-        label: 'Government',
-        value: '78%'
-      }
-    ]} />
-  </Card>
-
-  <Card>
-    <Card.Header>Lack of control</Card.Header>
-    <Card.Desc>They have very little / no control over the data ____ collects.</Card.Desc>
-    <Card.Data data={[
-      {
-        label: 'Companies',
-        value: '81%'
-      },
-      {
-        label: 'Government',
-        value: '84%'
-      }
-    ]} />
-  </Card>
-  <Card>
-    <Card.Header>Concern over data use</Card.Header>
-    <Card.Desc>They are very / somewhat concerned about how ___ use(s) the data collected.</Card.Desc>
-    <Card.Data data={[
-      {
-        label: 'Companies',
-        value: '79%'
-      },
-      {
-        label: 'Government',
-        value: '65%'
-      }
-    ]} />
-  </Card>
-</Scroller>
-
-Personal data holders collect and use users' data to provide services to them. However, since everything is stored in servers which
-users don't normally have access to, it's hidden from them, and they can't transparently see what they do with it.
-- Is it securely encrypted?
-- Can it be accessed by anyone else without the user's permission?
--
-
+![Peek](/bridge/sneak-peek.webp)
+## Goals
 There aren't any systems set in place to help users feel secure about sharing their data — it really comes down to if
-the user is willing to share the data with a trustworthy company because they don't have any other choice but to store
-data in the company's servers.
+the user is willing to share the data with a company because they don't have any other choice but to store
+data in the company's servers in order to use their services.
 
-### What people say
+**Bridge** aims to provide users the following:
+- Sense of security that people feel when they share their data
+- Complete ownership of their data
+- Clear understanding of how companies use their data
+- Staying anonymous and not be tracked
+
+Bridge's concept revolves around the idea of *self-hosting*.
+The server is *decentralized*; it's not tied to a remote server they don't own but rather to a local server.
+Through self-hosting and being a network router, Bridge also monitors the traffic and helps users stay untracked.
+
+* * *
+
+[//]: # (## Background)
+
+[//]: # ()
+[//]: # ()
+[//]: # (### Consensus)
+
+[//]: # (>Majority of Americans feel as if they have little control over data collected about them by companies and the government)
+
+[//]: # ()
+[//]: # ([*Pew Research Center*]&#40;https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/&#41;)
+
+[//]: # ()
+[//]: # (<Scroller>)
+
+[//]: # (  <Card>)
+
+[//]: # (    <Card.Header>Lack of understanding about data use</Card.Header>)
+
+[//]: # (    <Card.Desc>They have very little no understanding about what ___ do / does with the data collected.</Card.Desc>)
+
+[//]: # (    <Card.Data data={[)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Companies',)
+
+[//]: # (        value: '59%')
+
+[//]: # (      },)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Government',)
+
+[//]: # (        value: '78%')
+
+[//]: # (      })
+
+[//]: # (    ]} />)
+
+[//]: # (  </Card>)
+
+[//]: # ()
+[//]: # (  <Card>)
+
+[//]: # (    <Card.Header>Lack of control</Card.Header>)
+
+[//]: # (    <Card.Desc>They have very little / no control over the data ____ collects.</Card.Desc>)
+
+[//]: # (    <Card.Data data={[)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Companies',)
+
+[//]: # (        value: '81%')
+
+[//]: # (      },)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Government',)
+
+[//]: # (        value: '84%')
+
+[//]: # (      })
+
+[//]: # (    ]} />)
+
+[//]: # (  </Card>)
+
+[//]: # (  <Card>)
+
+[//]: # (    <Card.Header>Concern over data use</Card.Header>)
+
+[//]: # (    <Card.Desc>They are very / somewhat concerned about how ___ use&#40;s&#41; the data collected.</Card.Desc>)
+
+[//]: # (    <Card.Data data={[)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Companies',)
+
+[//]: # (        value: '79%')
+
+[//]: # (      },)
+
+[//]: # (      {)
+
+[//]: # (        label: 'Government',)
+
+[//]: # (        value: '65%')
+
+[//]: # (      })
+
+[//]: # (    ]} />)
+
+[//]: # (  </Card>)
+
+[//]: # (</Scroller>)
+
+[//]: # ()
+[//]: # (Personal data holders collect and use users' data to provide services to them. However, since everything is stored in servers which)
+
+[//]: # (users don't normally have access to, it's hidden from them, and they can't transparently see what they do with it.)
+
+[//]: # (- Is it securely encrypted?)
+
+[//]: # (- Can it be accessed by anyone else without the user's permission?)
+
+[//]: # (-)
+
+[//]: # ()
+[//]: # (### What people say)
+
+[//]: # (Here are some of the key quotes from a few people I've interviewed:)
+
+[//]: # ()
+[//]: # (>I feel invaded; I'm constantly being tracked on the web. I don't want anyone to access my private data and also be monetized.)
+
+[//]: # ()
+[//]: # (>Although I got nothing to hide, I feel insecure about storing and sharing data because I never know what they exactly do with it.)
+
+[//]: # ()
+[//]: # (>... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form])
+
+[//]: # (as a preventative measure to keep my data private.)
+
+[//]: # ()
+[//]: # (From these quotes, the key insight we can gather here is that people feel invaded, insecure, and are afraid of sharing)
+
+[//]: # (their data no matter what.)
+
+[//]: # ()
+[//]: # (### Verdict)
+
+[//]: # (There aren't any systems set in place to help users feel secure about sharing their data — it really comes down to if)
+
+[//]: # (the user is willing to share the data with a trustworthy company because they don't have any other choice but to store)
+
+[//]: # (data in the company's servers in order to use their services.)
+
+[//]: # ()
+[//]: # (**Bridge** aims to provide users the following:)
+
+[//]: # (- Sense of security that people feel when they share their data)
+
+[//]: # (- Complete ownership of their data)
+
+[//]: # (- Clear understanding of how companies use their data)
+
+[//]: # (- Staying anonymous and not be tracked)
+
+[//]: # ()
+[//]: # (* * *)
+
+[//]: # ()
+[//]: # (## Meet Bridge)
+
+[//]: # (Bridge lives at home and is a trusted personal server and a router that is designed to protect users' privacy.)
+
+[//]: # (Everything's transparent with Bridge. Data is completely owned by the user, protects their privacy, and most importantly,)
+
+[//]: # (it helps them feel secure on the internet.)
+
+[//]: # ()
+[//]: # (### Decentralization)
+
+[//]: # (Bridge is a decentralized server inside users' homes, which means that the server is not tied to a specific location.)
+
+[//]: # (Through the use of a decentralized server, users are storing their data on a server they use instead of a server that)
+
+[//]: # (collects data from all other users.)
+
+## Permits
+>... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form]
+as a preventative measure to keep my data private.
+
+People want to take care of their sensitive data and want to be in of control it.
+Most people hate giving out their information because it can be stolen and abused.
+>What if requesters have to ask for permits whenever they need to access data, and users can revoke permits whenever they feel like it?
+
+### Handling permissions
+Users don't have to worry about how their data is stored and used by the requesters because it's end-to-end encrypted,
+and APIs ensure decryption and storage of the data isn't possible without their knowledge.
+It also provides transparent information about what's shared.
+
+<Video src="/bridge/videos/permit-request.mp4" width={240} type="mp4" />
+
+*Permits are granted after a request → review → approval process.*
+
+### Permit management
+After giving permits to requesters, permissions show exactly what data is being shared and how it's being used by the requesters.
+If users don't want to share their data for whatever reason, they can revoke permits with an ease.
+
+![Permits](/bridge/permissions.webp)
+
+* * *
+
+## Blockers
+>I feel invaded. I'm constantly being tracked on the web. I don't want anyone to access my private data and also be monetized.
+
+Blockers are content blockers at a router level which requires no additional setup for all users on the Wi-Fi network.
+Blockers protect users from unwanted tracks, malicious websites and privacy-invasive elements while browsing on the internet or using applications.
+
+![Permits](/bridge/blockers.webp)
