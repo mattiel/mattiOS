@@ -61,8 +61,8 @@ const Scroller: React.FC = ({ children }) => {
           })
         }
       </div>
-      {ref?.current?.scrollLeft > 0 && <div className="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-white dark:from-black" />}
-      {currentIndex !== widths.length - 1 && <div className="absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-white dark:from-black" />}
+      {ref?.current?.scrollLeft > 0 && <div className="absolute top-0 left-0 h-full w-[2%] bg-gradient-to-r from-white dark:from-black" />}
+      {currentIndex !== widths.length - 1 && <div className="absolute top-0 right-0 h-full w-[2%] bg-gradient-to-l from-white dark:from-black" />}
       <AnimatePresence>
         <div className="hidden lg:flex items-center absolute top-0 w-full flex items-center top-1/2 transform -translate-y-1/2">
           { ref?.current?.scrollLeft > 0 && (
