@@ -8,7 +8,7 @@ enum ScrollDirection {
 }
 
 const Scroller: React.FC = ({ children }) => {
-  // non-null assertion operator: ref never will be null once component mounts.
+  // Note: non-null assertion operator: ref never will be null once component mounts.
   const ref = useRef<HTMLDivElement>(null!)
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
   const [widths, setWidths] = React.useState<number[]>([]);
@@ -16,15 +16,17 @@ const Scroller: React.FC = ({ children }) => {
   function handleScroll(direction: ScrollDirection) {
     if(widths[currentIndex + direction] !== null) {
       ref.current.scrollBy({
-        left: widths[currentIndex + direction] / 2 * direction,
+        left: direction,
         behavior: 'smooth'
       })
     }
+    setCurrentIndex(currentIndex + direction)
   }
 
   function handleEntries(entries: IntersectionObserverEntry[]) {
     entries.forEach(entry => {
       entry.isIntersecting && setCurrentIndex(Array.from(ref.current.children || []).indexOf(entry.target))
+      console.log(currentIndex)
     })
   }
 
@@ -38,7 +40,7 @@ const Scroller: React.FC = ({ children }) => {
 
   useEffect(() => {
     const refChildren = ref?.current?.children
-    const observer = new IntersectionObserver(handleEntries,{ root: ref.current, threshold: 1 })
+    const observer = new IntersectionObserver(handleEntries,{ root: ref.current, threshold: .995 })
     addElementWidths(refChildren)
     Array.from(refChildren).forEach(element => observer.observe(element))
 
