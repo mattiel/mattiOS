@@ -2,12 +2,13 @@ import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/sou
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import readingTime from 'reading-time'
 
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, '')
-  }
+  },
 }
 
 export const Project = defineDocumentType(() => ({
