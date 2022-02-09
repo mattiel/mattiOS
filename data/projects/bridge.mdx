@@ -1,45 +1,42 @@
 ---
 title: Bridge
 date: 2022-01-09
-summary: A personal server and a Wi-Fi router designed to protect user's privacy.
+summary: A personal at-home server and a Wi-Fi router designed to protect user's privacy.
 thumbnail: /thumbnails/bridge.webp
 ---
 
 
 ## In a nutshell
-I've reimagined how people's private data are handled by the requesters such as companies and government agencies.
-Bridge aims to solve many problems users might face when browsing on the internet and sharing and storing data.
+The concept revolves around **self-hosting** on a server a user wholly owns. It promotes the idea of **decentralization**
+— personal data is not tied to a centralized server that external organizations own. Instead, all data storage happens
+in a server owned by the user.
+
+[//]: # (Bridge solves many problems users might face when browsing on the internet and sharing and storing data by)
+
+[//]: # (**granting permits** to requesters which gives read-only access to sensitive data from a at-home server instead of storing)
+
+[//]: # (it in their servers, protect and enhance web browsing experience for people on the Wi-Fi network by **blocking)
+
+[//]: # (privacy-invasive elements** such as ads and trackers, and **securely store files** in a home server they own.)
+
+The key features include:
+- **Power over sharing personal data** by granting permission to requesters read-only access to sensitive data from at-home
+servers which are revocable at any time.
+- **Protect, anonymize, and enhance the web browsing experience** for people on the Wi-Fi network by blocking
+privacy-invasive elements such as ads and trackers.
+- **Securely store files** in full-featured network storage hosted by the file owners themselves.
 
 * * *
 
 ![Peek](/bridge/sneak-peek.webp)
-## Goals
-There aren't any systems set in place to help users feel secure about sharing their data — it really comes down to if
-the user is willing to share the data with a company because they don't have any other choice but to store
-data in the company's servers in order to use their services.
+## People are concerned
+>Majority of Americans feel as if they have little control over data collected about them by companies and the government
 
-**Bridge** aims to provide users the following:
-- Sense of security that people feel when they share their data
-- Complete ownership of their data
-- Clear understanding of how companies use their data
-- Staying anonymous and not be tracked
+[*Pew Research Center*](https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/)
 
-Bridge's concept revolves around the idea of *self-hosting*.
-The server is *decentralized*; it's not tied to a remote server they don't own but rather to a local server.
-Through self-hosting and being a network router, Bridge also monitors the traffic and helps users stay untracked.
-
-* * *
-
-[//]: # (## Background)
-
-[//]: # ()
-[//]: # ()
-[//]: # (### Consensus)
-
-[//]: # (>Majority of Americans feel as if they have little control over data collected about them by companies and the government)
-
-[//]: # ()
-[//]: # ([*Pew Research Center*]&#40;https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/&#41;)
+There aren't any systems set in place to help people feel secure about sharing their data — they can't exactly see
+or take control of the data shared. People will choose to share and store personal data in servers they don't own
+because they don't have any other choice but to store data in the company's servers in order to use their services.
 
 [//]: # ()
 [//]: # (<Scroller>)
@@ -72,7 +69,6 @@ Through self-hosting and being a network router, Bridge also monitors the traffi
 
 [//]: # (  </Card>)
 
-[//]: # ()
 [//]: # (  <Card>)
 
 [//]: # (    <Card.Header>Lack of control</Card.Header>)
@@ -131,16 +127,20 @@ Through self-hosting and being a network router, Bridge also monitors the traffi
 
 [//]: # (</Scroller>)
 
-[//]: # ()
-[//]: # (Personal data holders collect and use users' data to provide services to them. However, since everything is stored in servers which)
+Personal data holders collect and use users' data to provide services to them. However, since everything is stored in
+servers which users don't normally have access to, it's hidden from them, and they can't transparently see what they do
+with it. **It's uncertain how data is exactly handled:**
+- Is it properly encrypted and securely stored?
+- Can it be accessed by anyone else without the user's permission?
+- What if they use the data without acknowledgement?
 
-[//]: # (users don't normally have access to, it's hidden from them, and they can't transparently see what they do with it.)
+**Bridge**'s goal is to relieve many concerns about privacy by providing them:
+- Sense of security that people feel when they share their data
+- Complete ownership of their data
+- Clear understanding of how companies use their data
+- Staying anonymous and not be tracked
 
-[//]: # (- Is it securely encrypted?)
-
-[//]: # (- Can it be accessed by anyone else without the user's permission?)
-
-[//]: # (-)
+* * *
 
 [//]: # ()
 [//]: # (### What people say)
@@ -186,46 +186,41 @@ Through self-hosting and being a network router, Bridge also monitors the traffi
 [//]: # ()
 [//]: # (* * *)
 
-[//]: # ()
-[//]: # (## Meet Bridge)
-
-[//]: # (Bridge lives at home and is a trusted personal server and a router that is designed to protect users' privacy.)
-
-[//]: # (Everything's transparent with Bridge. Data is completely owned by the user, protects their privacy, and most importantly,)
-
-[//]: # (it helps them feel secure on the internet.)
-
-[//]: # ()
-[//]: # (### Decentralization)
-
-[//]: # (Bridge is a decentralized server inside users' homes, which means that the server is not tied to a specific location.)
-
-[//]: # (Through the use of a decentralized server, users are storing their data on a server they use instead of a server that)
-
-[//]: # (collects data from all other users.)
-
+![Peek](/bridge/permit-illust.webp)
 ## Permits
 >... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form]
 as a preventative measure to keep my data private.
 
-People want to take care of their sensitive data and want to be in of control it.
-Most people hate giving out their information because it can be stolen and abused.
->What if requesters have to ask for permits whenever they need to access data, and users can revoke permits whenever they feel like it?
+People want to take care of their sensitive data and want to be in of control it. Most people hate giving out their
+information because it can be stolen and abused.
 
-### Handling permissions
-Users don't have to worry about how their data is stored and used by the requesters because it's end-to-end encrypted,
-and APIs ensure decryption and storage of the data isn't possible without their knowledge.
-It also provides transparent information about what's shared.
+In the real world, permit is given to someone as an authorization to do something under a some sort of agreement.
+Private data is being shared constantly for service under agreement. People do want to share their data when it's
+necessary and a lot of the times it is for the benefit of the sharer. However, it's important to have a system that
+prevents certain user data from being exposed indefinitely.
+
+The problem is that external organizations have access to personal information, and it's stored in a location where
+the sharer don't have a control over. This makes them feel *unsafe* and *insecure*. What if requesters have to ask for
+permits whenever they need to access data, and users can revoke permits whenever they feel like it?
+
+### The handshake
+The concept of permit is a way to give users the ability to share their data with complete understanding of how the data
+will be processed and used. Since the data is also stored in Bridge, it ensures protection and control by providing
+read-only APIs which are only accessible until the permit is valid.
 
 <Video src="/bridge/videos/permit-request.mp4" width={240} type="mp4" />
 
 *Permits are granted after a request → review → approval process.*
 
+![Permit request iterations](/bridge/permit-iterations.webp)
+*Multiple prototypes were tested and iterated for clarity and simplicity of handshake process.*
+
 ### Permit management
-After giving permits to requesters, permissions show exactly what data is being shared and how it's being used by the requesters.
+After giving permits to requesters, permits show exactly what data is being shared and how it's being used by the requesters.
 If users don't want to share their data for whatever reason, they can revoke permits with an ease.
 
-![Permits](/bridge/permissions.webp)
+![Permit management](/bridge/permit-management.webp)
+*Hierarchically organized depth of permits showing clarity of shared data.*
 
 * * *
 
@@ -235,4 +230,22 @@ If users don't want to share their data for whatever reason, they can revoke per
 Blockers are content blockers at a router level which requires no additional setup for all users on the Wi-Fi network.
 Blockers protect users from unwanted tracks, malicious websites and privacy-invasive elements while browsing on the internet or using applications.
 
-![Permits](/bridge/blockers.webp)
+### Website block
+
+
+![Blockers blocked example](/bridge/blockers-website-blocked.webp)
+*A malicious pages are blocked by redirecting web requests to Bridge's sentinel page.*
+
+### Removing unwanted elements
+![Blockers ads removed example](/bridge/blockers-ads-removed.webp)
+*Unwanted contents such as ads and trackers are removed on the fly.*
+
+### Custom blockers
+![Blockers](/bridge/blockers.webp)
+*Customizable blockers with patterns make Wi-Fi level blocking even more powerful.*
+
+* * *
+
+## Privacy Report
+To help people more secure and ensure their privacy while using bridge, they can check how Bridge is working diligently.
+<Video src="/bridge/videos/privacy-report.mp4" className="bg-gray-700" width={240} type="mp4" />
