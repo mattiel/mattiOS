@@ -61,7 +61,11 @@ a {
   /*}*/
 
   .prose .anchor {
-    @apply no-underline flex items-center relative
+    @apply no-underline inline-flex items-center relative
+  }
+
+  .prose p :where(img, .video):not(:where([class~="not-prose"])) {
+    margin-bottom: .75em !important
   }
 
   /*.prose [id]:before {*/
