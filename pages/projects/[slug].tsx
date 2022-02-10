@@ -5,6 +5,7 @@ import Layout from '@components/Layout'
 import Image from 'next/image'
 import RevealElement from '@components/RevealElement'
 import Toc from '@components/Toc'
+import Contact from "@components/Contact";
 import MDXComponents from '@components/MDXComponents'
 import React from "react";
 
@@ -29,6 +30,7 @@ export default function ProjectPage({ project }: { project: Project }) {
         </RevealElement>
         <MDXContent components={{...MDXComponents as any}} />
       </article>
+      <Contact />
     </Layout>
   )
 }
