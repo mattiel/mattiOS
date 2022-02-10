@@ -26,7 +26,7 @@ const RevealImage: React.FC<ImageProps> = (props) => {
   return (
     <RevealElement className={props.className}>
       {/*<Image onLoadingComplete={handleLoad} className="" {...props}/>*/}
-      <Image {...props} alt={props.alt}/>
+      <Image {...props} alt={props.alt} />
     </RevealElement>
   )
 }
