@@ -50,12 +50,12 @@ const Scroller: React.FC = ({ children }) => {
 
   return (
     <section className="relative">
-      <div className="flex items-top relative whitespace-nowrap relative overflow-x-auto py-4 snap-mandatory snap-x scrollbar-none" ref={ref}>
+      <div className="flex items-top relative whitespace-nowrap relative overflow-x-auto py-4 snap-mandatory snap-x scrollbar-none space-x-3" ref={ref}>
         {
           React.Children?.map(children, (child, idx) => {
             if(React.isValidElement(child)) {
               return (
-                <div className={`${idx} inline-block flex-shrink-0 whitespace-normal snap-mandatory snap-x snap-start mr-5`}>
+                <div className={`${idx} scroller-item inline-block flex-shrink-0 whitespace-normal snap-mandatory snap-x snap-start max-w-[calc(100%-2rem)] not-prose`}>
                   {React.cloneElement(child)}
                 </div>
               )
@@ -63,18 +63,19 @@ const Scroller: React.FC = ({ children }) => {
           })
         }
       </div>
-      {ref?.current?.scrollLeft > 0 && <div className="absolute top-0 left-0 h-full w-[2%] bg-gradient-to-r from-white dark:from-black" />}
-      {currentIndex !== widths.length - 1 && <div className="absolute top-0 right-0 h-full w-[2%] bg-gradient-to-l from-white dark:from-black" />}
+      {/*{ref?.current?.scrollLeft > 0 && <div className="absolute top-0 left-0 h-full w-[2%] bg-gradient-to-r from-white dark:from-black" />}*/}
+      {/*{currentIndex !== widths.length - 1 && <div className="absolute top-0 right-0 h-full w-[2%] bg-gradient-to-l from-white dark:from-black" />}*/}
       <AnimatePresence>
         <div className="hidden lg:flex items-center absolute top-0 w-full flex items-center top-1/2 transform -translate-y-1/2">
           { ref?.current?.scrollLeft > 0 && (
             <motion.button
+              key="left"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0}}
               onClick={() => handleScroll(ScrollDirection.Left)}
               className={clsx(
-                "absolute w-10 h-10 rounded-full left-0 dark:bg-gray-500 bg-opacity-50 grid place-items-center",
+                "absolute w-10 h-10 rounded-full -left-5 bg-gray-600 bg-opacity:80 dark:bg-gray-900 dark:bg-opacity-80 grid place-items-center",
               )}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,12 +86,13 @@ const Scroller: React.FC = ({ children }) => {
 
           { currentIndex !== widths.length - 1 && (
             <motion.button
+              key="right"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0}}
               onClick={() => handleScroll(ScrollDirection.Right)}
               className={clsx(
-                "absolute w-10 h-10 rounded-full right-0 dark:bg-gray-500 bg-opacity-50 grid place-items-center",
+                "absolute w-10 h-10 rounded-full -right-5 bg-gray-600 bg-opacity:80 dark:bg-gray-900 dark:bg-opacity-80 grid place-items-center",
               )}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
