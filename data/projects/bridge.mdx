@@ -29,7 +29,7 @@ privacy-invasive elements such as ads and trackers.
 * * *
 
 ![Peek](/bridge/sneak-peek.webp)
-## People are concerned
+## Problems
 >Majority of Americans feel as if they have little control over data collected about them by companies and the government
 
 [*Pew Research Center*](https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/)
@@ -142,50 +142,6 @@ with it. **It's uncertain how data is exactly handled:**
 
 * * *
 
-[//]: # ()
-[//]: # (### What people say)
-
-[//]: # (Here are some of the key quotes from a few people I've interviewed:)
-
-[//]: # ()
-[//]: # (>I feel invaded; I'm constantly being tracked on the web. I don't want anyone to access my private data and also be monetized.)
-
-[//]: # ()
-[//]: # (>Although I got nothing to hide, I feel insecure about storing and sharing data because I never know what they exactly do with it.)
-
-[//]: # ()
-[//]: # (>... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form])
-
-[//]: # (as a preventative measure to keep my data private.)
-
-[//]: # ()
-[//]: # (From these quotes, the key insight we can gather here is that people feel invaded, insecure, and are afraid of sharing)
-
-[//]: # (their data no matter what.)
-
-[//]: # ()
-[//]: # (### Verdict)
-
-[//]: # (There aren't any systems set in place to help users feel secure about sharing their data — it really comes down to if)
-
-[//]: # (the user is willing to share the data with a trustworthy company because they don't have any other choice but to store)
-
-[//]: # (data in the company's servers in order to use their services.)
-
-[//]: # ()
-[//]: # (**Bridge** aims to provide users the following:)
-
-[//]: # (- Sense of security that people feel when they share their data)
-
-[//]: # (- Complete ownership of their data)
-
-[//]: # (- Clear understanding of how companies use their data)
-
-[//]: # (- Staying anonymous and not be tracked)
-
-[//]: # ()
-[//]: # (* * *)
-
 ![Peek](/bridge/permit-illust.webp)
 ## Permits
 >... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form]
@@ -204,8 +160,8 @@ the sharer don't have a control over. This makes them feel *unsafe* and *insecur
 permits whenever they need to access data, and users can revoke permits whenever they feel like it?
 
 ### The handshake
-The concept of permit is a way to give users the ability to share their data with complete understanding of how the data
-will be processed and used. Since the data is also stored in Bridge, it ensures protection and control by providing
+The concept of permit is a way to give users the ability to share their data with complete understanding of how it
+will be processed and used. Since it's also stored in Bridge, it ensures protection and control by providing
 read-only APIs which are only accessible until the permit is valid.
 
 <Video src="/bridge/videos/permit-request.mp4" width={240} type="mp4" />
@@ -228,24 +184,85 @@ If users don't want to share their data for whatever reason, they can revoke per
 >I feel invaded. I'm constantly being tracked on the web. I don't want anyone to access my private data and also be monetized.
 
 Blockers are content blockers at a router level which requires no additional setup for all users on the Wi-Fi network.
-Blockers protect users from unwanted tracks, malicious websites and privacy-invasive elements while browsing on the internet or using applications.
+Blockers protect users from unwanted tracks, malicious websites and privacy-invasive elements while browsing on the
+internet or using applications.
 
 ### Website block
-
+Blocking a website before it's loaded on the end user's devices is a way to protect themselves from getting attacked from
+malicious websites.
 
 ![Blockers blocked example](/bridge/blockers-website-blocked.webp)
-*A malicious pages are blocked by redirecting web requests to Bridge's sentinel page.*
+*Example of malicious page being blocked by redirecting web page request to Bridge's sentinel page.*
 
 ### Removing unwanted elements
+Ads and trackers make people feel insecure while browsing on the web because they are everywhere — blocking them
+reduces visual cognitive load and helps users stay anonymous while browsing the web.
+
 ![Blockers ads removed example](/bridge/blockers-ads-removed.webp)
-*Unwanted contents such as ads and trackers are removed on the fly.*
+*Unwanted contents such as ads and trackers are removed.*
 
 ### Custom blockers
+For people who want to use their own custom blockers, they can create patterns to block specific elements.
+
 ![Blockers](/bridge/blockers.webp)
 *Customizable blockers with patterns make Wi-Fi level blocking even more powerful.*
 
 * * *
 
-## Privacy Report
-To help people more secure and ensure their privacy while using bridge, they can check how Bridge is working diligently.
+## Privacy report
+Through interviews and research, it was important to ensure that people feel secure about their privacy. In order to do
+so, privacy reports exactly shows how Bridge is working behind the scenes to protect them.
 <Video src="/bridge/videos/privacy-report.mp4" className="bg-gray-700" width={240} type="mp4" />
+
+## Widgets and files
+![Desktop Main](/bridge/desktop-main.webp)
+*Widget based desktop experience organizes features in clear manner for management*
+![Desktop Files](/bridge/desktop-files.webp)
+*Self-hosted Network Attached Storage(NAS) allows users to completely own their files without storing in third-party servers*
+![File Optimize](/bridge/desktop-optimize.webp)
+*User-centric file management prevents overload of unnecessary data for longevity of the mounted storages (HDDs, SSDs, M2s)*
+
+* * *
+
+## Design system
+Tiny design system was developed to keep designs scalable, manageable, and consistent across the whole project.
+![Design System Hero](/bridge/ds-hero.webp)
+
+### Spaces
+Inspired by how [REM](https://www.w3.org/TR/css-values-3/#absolute-lengths) units work in CSS. Focusing on consistency
+and pixel-perfect driven components that are divisible by 2 evenly to prevent half-pixel values which could break
+certain designs on certain browsers and devices.
+![Spatial System](/bridge/ds-spatial-system.webp)
+
+### Accessible colors and dark mode
+The designs embrace color mode preferences and are [WCAG 2.1 Compliant](https://www.w3.org/TR/WCAG21/) for
+accessibility as contrast ratios are important for clear communication of data permits and preventing user errors.
+![Color System](/bridge/ds-colors.webp)
+
+### Layouts and typography
+Using spacial guidelines as a base, column based layouts were spaced out accordingly and a set of typographic rules
+were created to harmoniously work with the other components.
+<Scroller>
+
+  ![Layout System](/bridge/ds-layout-system.webp)
+
+  ![Typography System](/bridge/ds-typography.webp)
+
+</Scroller>
+
+### Components
+These components are the outcome of following the systems and guidelines above.
+![Components Light](/bridge/ds-components-light.webp)
+![Components Dark](/bridge/ds-components-dark.webp)
+
+## Next Steps
+Currently, personal data is shared in exchange for the use of organization's services, and people are concerned because
+these data is stored in centralized servers that the sharers don't have access to. To solve this, this project's concepts
+were centered around the idea of a decentralization by self-hosting through at-home personal servers. In addition,
+it protects everyone's anonymity and privacy on the web. While it is not a perfect solution because it requires
+stable home internet connection and some sort of server management, it is a good starting point to explore what might be
+required to build a better solution.
+
+Today, blockchain technology is being explored and used mainly for crypto currencies. [Web3](https://en.wikipedia.org/wiki/Web3)
+is speculated to be the next step in decentralization of servers and transparent exchange of data. The next step would
+be to explore how Web3 technologies can change how the services are used.
