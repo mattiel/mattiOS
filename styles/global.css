@@ -36,6 +36,10 @@ a {
   height: 0
 }
 
+.scroller-item img {
+  max-width: 98%;
+}
+
 @layer components {
   .layout {
     display: grid;
@@ -64,7 +68,7 @@ a {
     @apply no-underline inline-flex items-center relative
   }
 
-  .prose p :where(img, .video):not(:where([class~="not-prose"])) {
+  .prose > p :where(img, .video):not(:where([class~="not-prose"])) {
     margin-bottom: .75em !important
   }
 
