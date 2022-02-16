@@ -1,23 +1,15 @@
 ---
 title: Bridge
-date: 2022-01-09
+date: 2021-08-20
 summary: A personal at-home server and a Wi-Fi router designed to protect user's privacy.
 thumbnail: /thumbnails/bridge.webp
+tags: UI, UX, Product Design
 ---
-
 
 ## In a nutshell
 The concept revolves around **self-hosting** on a server a user wholly owns. It promotes the idea of **decentralization**
 — personal data is not tied to a centralized server that external organizations own. Instead, all data storage happens
 in a server owned by the user.
-
-[//]: # (Bridge solves many problems users might face when browsing on the internet and sharing and storing data by)
-
-[//]: # (**granting permits** to requesters which gives read-only access to sensitive data from a at-home server instead of storing)
-
-[//]: # (it in their servers, protect and enhance web browsing experience for people on the Wi-Fi network by **blocking)
-
-[//]: # (privacy-invasive elements** such as ads and trackers, and **securely store files** in a home server they own.)
 
 The key features include:
 - **Power over sharing personal data** by granting permission to requesters read-only access to sensitive data from at-home
@@ -38,101 +30,14 @@ There aren't any systems set in place to help people feel secure about sharing t
 or take control of the data shared. People will choose to share and store personal data in servers they don't own
 because they don't have any other choice but to store data in the company's servers in order to use their services.
 
-[//]: # ()
-[//]: # (<Scroller>)
-
-[//]: # (  <Card>)
-
-[//]: # (    <Card.Header>Lack of understanding about data use</Card.Header>)
-
-[//]: # (    <Card.Desc>They have very little no understanding about what ___ do / does with the data collected.</Card.Desc>)
-
-[//]: # (    <Card.Data data={[)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Companies',)
-
-[//]: # (        value: '59%')
-
-[//]: # (      },)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Government',)
-
-[//]: # (        value: '78%')
-
-[//]: # (      })
-
-[//]: # (    ]} />)
-
-[//]: # (  </Card>)
-
-[//]: # (  <Card>)
-
-[//]: # (    <Card.Header>Lack of control</Card.Header>)
-
-[//]: # (    <Card.Desc>They have very little / no control over the data ____ collects.</Card.Desc>)
-
-[//]: # (    <Card.Data data={[)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Companies',)
-
-[//]: # (        value: '81%')
-
-[//]: # (      },)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Government',)
-
-[//]: # (        value: '84%')
-
-[//]: # (      })
-
-[//]: # (    ]} />)
-
-[//]: # (  </Card>)
-
-[//]: # (  <Card>)
-
-[//]: # (    <Card.Header>Concern over data use</Card.Header>)
-
-[//]: # (    <Card.Desc>They are very / somewhat concerned about how ___ use&#40;s&#41; the data collected.</Card.Desc>)
-
-[//]: # (    <Card.Data data={[)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Companies',)
-
-[//]: # (        value: '79%')
-
-[//]: # (      },)
-
-[//]: # (      {)
-
-[//]: # (        label: 'Government',)
-
-[//]: # (        value: '65%')
-
-[//]: # (      })
-
-[//]: # (    ]} />)
-
-[//]: # (  </Card>)
-
-[//]: # (</Scroller>)
-
 Personal data holders collect and use users' data to provide services to them. However, since everything is stored in
 servers which users don't normally have access to, it's hidden from them, and they can't transparently see what they do
 with it. **It's uncertain how data is exactly handled:**
 - Is it properly encrypted and securely stored?
 - Can it be accessed by anyone else without the user's permission?
 - What if they use the data without acknowledgement?
+
+![Decentralization by self-hosting](/bridge/decentralization.webp)
 
 **Bridge**'s goal is to relieve many concerns about privacy by providing them:
 - Sense of security that people feel when they share their data
@@ -147,19 +52,15 @@ with it. **It's uncertain how data is exactly handled:**
 >... I’ve never been hacked and had personal information leaked before, I [store my sensitive data in a physical form]
 as a preventative measure to keep my data private.
 
-People want to take care of their sensitive data and want to be in of control it. Most people hate giving out their
-information because it can be stolen and abused.
-
 In the real world, permit is given to someone as an authorization to do something under a some sort of agreement.
 Private data is being shared constantly for service under agreement. People do want to share their data when it's
 necessary and a lot of the times it is for the benefit of the sharer. However, it's important to have a system that
 prevents certain user data from being exposed indefinitely.
 
-The problem is that external organizations have access to personal information, and it's stored in a location where
-the sharer don't have a control over. This makes them feel *unsafe* and *insecure*. What if requesters have to ask for
-permits whenever they need to access data, and users can revoke permits whenever they feel like it?
-
 ### The handshake
+People want to take care of their sensitive data and want to be in of control it. Most people hate giving out their
+information because it can be stolen and abused.
+
 The concept of permit is a way to give users the ability to share their data with complete understanding of how it
 will be processed and used. Since it's also stored in Bridge, it ensures protection and control by providing
 read-only APIs which are only accessible until the permit is valid.
@@ -181,7 +82,8 @@ If users don't want to share their data for whatever reason, they can revoke per
 * * *
 
 ## Blockers
->I feel invaded. I'm constantly being tracked on the web. I don't want anyone to access my private data and also be monetized.
+>I feel invaded. I'm constantly being tracked on the web. I don't want anyone to access my private data and also have it
+monetized.
 
 Blockers are content blockers at a router level which requires no additional setup for all users on the Wi-Fi network.
 Blockers protect users from unwanted tracks, malicious websites and privacy-invasive elements while browsing on the
@@ -214,12 +116,21 @@ Through interviews and research, it was important to ensure that people feel sec
 so, privacy reports exactly shows how Bridge is working behind the scenes to protect them.
 <Video src="/bridge/videos/privacy-report.mp4" className="bg-gray-700" width={240} type="mp4" />
 
-## Widgets and files
+* * *
+
+## Widgets
+Complex information are made into cards to organize and hierarchically reduce the cognitive load by adding depth of each
+feature or element.
+
 ![Desktop Main](/bridge/desktop-main.webp)
 *Widget based desktop experience organizes features in clear manner for management*
+
+## Files
+Files are stored as it would like any other cloud storage services. In addition, users are encouraged to
+organize and optimize storage spaces as the physical storage such as hard drives need to be maintained by the owners.
 ![Desktop Files](/bridge/desktop-files.webp)
 *Self-hosted Network Attached Storage(NAS) allows users to completely own their files without storing in third-party servers*
-![File Optimize](/bridge/desktop-optimize.webp)
+![Optimize Files](/bridge/desktop-optimize.webp)
 *User-centric file management prevents overload of unnecessary data for longevity of the mounted storages (HDDs, SSDs, M2s)*
 
 * * *
@@ -229,9 +140,9 @@ Tiny design system was developed to keep designs scalable, manageable, and consi
 ![Design System Hero](/bridge/ds-hero.webp)
 
 ### Spaces
-Inspired by how [REM](https://www.w3.org/TR/css-values-3/#absolute-lengths) units work in CSS. Focusing on consistency
-and pixel-perfect driven components that are divisible by 2 evenly to prevent half-pixel values which could break
-certain designs on certain browsers and devices.
+Inspired by how [REM](https://www.w3.org/TR/css-values-3/#absolute-lengths) units work in CSS, spacial system focuses
+on consistency and pixel-perfect driven components that are divisible by 2 evenly. This prevents half-pixel values which
+could break certain designs on certain browsers and devices.
 ![Spatial System](/bridge/ds-spatial-system.webp)
 
 ### Accessible colors and dark mode
@@ -239,7 +150,7 @@ The designs embrace color mode preferences and are [WCAG 2.1 Compliant](https://
 accessibility as contrast ratios are important for clear communication of data permits and preventing user errors.
 ![Color System](/bridge/ds-colors.webp)
 
-### Layouts and typography
+### Layouts, typography, and glyphs
 Using spacial guidelines as a base, column based layouts were spaced out accordingly and a set of typographic rules
 were created to harmoniously work with the other components.
 <Scroller>
@@ -247,6 +158,8 @@ were created to harmoniously work with the other components.
   ![Layout System](/bridge/ds-layout-system.webp)
 
   ![Typography System](/bridge/ds-typography.webp)
+
+  ![Glyph System](/bridge/ds-glyphs.webp)
 
 </Scroller>
 
@@ -256,13 +169,13 @@ These components are the outcome of following the systems and guidelines above.
 ![Components Dark](/bridge/ds-components-dark.webp)
 
 ## Next Steps
-Currently, personal data is shared in exchange for the use of organization's services, and people are concerned because
-these data is stored in centralized servers that the sharers don't have access to. To solve this, this project's concepts
-were centered around the idea of a decentralization by self-hosting through at-home personal servers. In addition,
-it protects everyone's anonymity and privacy on the web. While it is not a perfect solution because it requires
-stable home internet connection and some sort of server management, it is a good starting point to explore what might be
-required to build a better solution.
+In an attempt to solve privacy concerns people face when using services or browsing the internet, this project's concepts
+were centered around the idea of a decentralization by self-hosting. *This may not be a perfect solution because*
+- Requires stable home internet connection.
+- Some sort of server management and storage management.
+However, the project lead me to explore what might be required to build systems and interactions around a scoped concept.
 
+![Web 3 Hero](/bridge/web3.webp)
 Today, blockchain technology is being explored and used mainly for crypto currencies. [Web3](https://en.wikipedia.org/wiki/Web3)
 is speculated to be the next step in decentralization of servers and transparent exchange of data. The next step would
 be to explore how Web3 technologies can change how the services are used.
