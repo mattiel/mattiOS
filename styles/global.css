@@ -68,8 +68,12 @@ a {
     @apply no-underline inline-flex items-center relative
   }
 
-  .prose > p :where(img, .video):not(:where([class~="not-prose"])) {
+  .prose > p :where(img):not(:where([class~="not-prose"])) {
     margin-bottom: .75em !important
+  }
+
+  .prose > .video + p em {
+    margin-top: -.75em !important
   }
 
   /*.prose [id]:before {*/
