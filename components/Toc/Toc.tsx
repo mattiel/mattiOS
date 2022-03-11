@@ -1,70 +1,71 @@
-import React, {ReactElement, Ref, RefObject} from 'react';
-import type { Project } from '.contentlayer/types'
+import React, { useCallback } from 'react';
 import clsx from "clsx";
 
-const Toc = ({ project }: { project: Project }) => {
-  const [slugs, setSlugs] = React.useState(Array<string>());
-  const [activeSlug, setActiveSlug] = React.useState('')
+const Toc = () => {
+  const [headings, setHeadings] = React.useState(Array<Element>());
+  const [activeSlug, setActiveSlug] = React.useState<Element>(null!)
 
-  function parse() {
-    return project.body.raw.split('\n').filter((line) => line.startsWith('#'))
-  }
-
-  const Heading = ({ href, title }: {href: string, title: string}) => {
+  const List = ({ href, title, indent }: {href: string, title: string, indent: boolean}) => {
     return(
-      <a
-        href={href}
-        className={clsx(
-          "leading-relaxed",
-          activeSlug === href ? "dark:text-white dark:hover:text-gray-300" : "dark:text-gray-400 dark:hover:text-white"
-        )}
+      <li className={clsx(
+        "border-l-2 border-l-gray-200 dark:border-l-gray-700 bg-opacity-20 dark:bg-opacity-20 px-4 dark:hover:bg-opacity-20",
+        indent && 'pl-8',
+        `#${activeSlug.id}` === href
+          ? "font-bold bg-pink-300 border-l-pink-500 dark:text-white dark:bg-pink-900 dark:border-l-pink-600"
+          : "hover:border-pink-500 hover:bg-pink-100 hover:text-pink-600 dark:hover:border-pink-600 dark:hover:bg-pink-900 dark:text-gray-400 dark:hover:text-pink-500")}
       >
-        {title}
-      </a>
+        <a
+          href={href}
+          className={clsx(
+            "leading-relaxed",
+
+          )}
+        >
+          {title}
+        </a>
+      </li>
+
     )
-
   }
 
-  function handleEntries(entries: IntersectionObserverEntry[]) {
+  const handleEntries = useCallback((entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
-      entry.isIntersecting && setActiveSlug(entry.target.getAttribute('id') as string)
-      console.log(entry.target, entry.isIntersecting, activeSlug)
+      if(entry.isIntersecting) {
+        setActiveSlug(entry.target)
+      }
     })
-  }
+  }, [activeSlug])
 
   React.useEffect(() => {
     const target = document.body.querySelector('article.prose')
-    if (target) {
-      setSlugs(Array.from(target.querySelectorAll('h2[id], h3[id]')).map(el => { return el.id }))
+    if (target?.querySelector('h2[id], h3[id]')) {
+      setHeadings(Array.from(target.querySelectorAll('h2[id], h3[id]')).map(el => { return el }))
       const observer = new IntersectionObserver(handleEntries, {
-        root: document.body,
+        rootMargin: '0px 0px -48px 0px',
         threshold: 1
       })
+      setActiveSlug(target.querySelector('h2[id]')!)
       Array.from(target.querySelectorAll('h2[id], h3[id]')).forEach(element => observer.observe(element))
       return () => observer.disconnect()
     }
-
   },[])
 
   return (
     <aside className="hidden 2xl:block relative px-12 h-full w-full overflow-hidden max-w-xs">
-      <nav className="top-36 fixed">
+      <nav className="top-36 fixed max-w-full w-64 pr-2">
         <p className="text-white text-sm font-medium mb-4">
           On this page
         </p>
-        <ul className="">
+        <ul className="text-sm leading-[2.25] whitespace-nowrap text-ellipsis overflow-hidden">
           {
-            // Slugs are currently generated from the title, doesn't consider duplicate title edge cases yet.
-            parse().map((line, i) => {
-              const isSubHeader = line.startsWith('###')
-              const [, title] = line.split('# ')
+            headings.map((heading, i) => {
               return (
-                <li key={i} className={clsx("text-sm", isSubHeader && 'ml-3')}>
-                  <Heading
-                    href={`#${title?.toLowerCase().replace(/ /g, '-')}`}
-                    title={title}
-                  />
-                </li>
+                <List
+                  key={heading.id}
+                  href={`#${headings[i].id}`}
+                  title={heading.textContent!}
+                  indent={heading.tagName === 'H3'}
+                />
               )
             })
           }
