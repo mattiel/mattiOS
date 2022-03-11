@@ -24,7 +24,7 @@ const Hero = () => {
         </motion.span>
         <h2 className="text-3xl leading-relaxed max-w-prose">
           Hello! 안녕하세요! I&apos;m Mattie — a multi-disciplinary experience designer
-          {""} with emphasis in <u className="underline decoration-4 underline-offset-2 decoration-yellow-400">🧑‍🚀 design systems</u>
+          {""} with emphasis in <u className="underline decoration-4 underline-offset-2 decoration-pink-600">🧑‍🚀 design systems</u>
           {""} and <u className="underline decoration-4 underline-offset-2 decoration-blue-600">🛠 front end development</u>.
         </h2>
         <div className="relative">

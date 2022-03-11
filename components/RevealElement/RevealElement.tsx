@@ -13,13 +13,15 @@ const RevealElement: React.FC<RevealElementProps> = ({ children, className }) =>
   const variants: Variants = {
     offscreen: {
       clipPath: 'polygon(0% 100%,100% 100%,100% 100%,0% 100%)',
+      transform: 'translateY(-10%)',
       opacity: 0,
     },
     onscreen: {
       clipPath: 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)',
       opacity: 1,
+      transform: 'translateY(0%)',
       transition: {
-        easeIn: [0.4, 0.8, 0.9, 1],
+        easeOut: [0.4, 0.9, 1],
         duration: .5,
       }
     }

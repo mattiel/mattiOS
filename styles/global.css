@@ -84,7 +84,7 @@ a {
   .prose .anchor:hover:after {
     content: '';
     background-size: 67% 67%;
-    @apply absolute left-0 w-6 h-6 rounded-md -ml-8 text-lg grid place-content-center dark:bg-gray-800 bg-no-repeat bg-center
+    @apply hidden lg:absolute left-0 w-6 h-6 rounded-md -ml-8 text-lg grid place-content-center dark:bg-gray-800 bg-no-repeat bg-center
   }
 
   .spotify-pulse {

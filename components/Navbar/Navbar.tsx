@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const links = [
   { href: '/resume', label: 'Resume' },
-  { href: '/contact', label: 'Contact' },
+  { href: 'mailto:hello@mattiel.dev', label: 'Contact' },
 ]
 
 const Navbar = () => {
