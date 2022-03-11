@@ -1,8 +1,64 @@
 ---
 title: Tomato
-date: 2021-07-01
-summary: An ERP and CRM for supermarket industries in South Korea
+date: 2021-07-12
+summary: An ERP and CRM for small to mid-sized supermarket in South Korea
 thumbnail: /thumbnails/tomato.webp
+tags: UI/UX, Product Design, Design Systems, Front End Development
 ---
 
-# Tomato
+## In a nutshell
+Tomato is an ERP (Enterprise Resource Planning) to replace old-school management system for non-corporate supermarkets.
+As a lead UX Engineer, I managed a small team to ship a product in an agile environment. I defined the product's visual
+elements, designed wireframes, contributed to front end development, and created design system and implementation
+guidelines for developers to streamline processes.
+
+## Design System
+![Components Overview](/tomato/components.webp)
+![Icons](/tomato/icons.webp)
+![Design system webpage](/tomato/ds-webpage.webp)
+![Implementation guideline](/tomato/imp-guideline.webp)
+
+<CH.Code>
+```sass _.globals.scss
+:root {
+  --select-padding: var(--size-4) var(--size-10) var(--size-4) calc(var(--size-4) + var(--size-1));
+  --select-height: var(--size-12);
+  --select-font-size: var(--font-size-3);
+  --select-border: 1px solid var(--color-gray-200);
+  --select-border-radius: var(--size-3);
+  --select-background-color: var(--color-white);
+  --select-color: var(--color-gray-900);
+  --select-placeholder-color: var(--color-gray-500)
+  --select-width: 100%;
+}
+```
+```sass _select.sass
+.select {
+  font-family: var(--font-noto);
+  padding: var(--select-padding);
+  height: var(--select-height);
+  font-size: var(--select-font-size);
+  border: var(--select-border);
+  border-radius: var(--select-border-radius);
+  background-color: var(--select-background-color);
+  width: var(--select-width);
+  color: var(--select-color);
+  outline: none;
+  appearance: none;
+  background-image: url('/apprs/common/images/glyphs/select-arrow-down.svg');
+  background-position: center right var(--size-4);
+  background-repeat: no-repeat;
+  background-size: 12px 7px;
+
+  &--height-large {
+    --select-height: var(--size-13);
+  }
+}
+
+```
+</CH.Code>
+![Redesign](/tomato/redesign.webp)
+![Product management modal](/tomato/product-management.webp)
+![Purchase slip modal](/tomato/purchase-slip.webp)
+
+* * *
