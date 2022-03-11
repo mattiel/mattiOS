@@ -26,7 +26,6 @@ const Scroller: React.FC = ({ children }) => {
   function handleEntries(entries: IntersectionObserverEntry[]) {
     entries.forEach(entry => {
       entry.isIntersecting && setCurrentIndex(Array.from(ref.current.children || []).indexOf(entry.target))
-      console.log(currentIndex)
     })
   }
 
