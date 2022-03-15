@@ -7,12 +7,16 @@ import RevealElement from '@components/RevealElement'
 import Toc from '@components/Toc'
 import MDXComponents from '@components/MDXComponents'
 import '@code-hike/mdx/dist/index.css'
+import Head from 'next/head'
 
 export default function ProjectPage({ project }: { project: Project }) {
   const MDXContent = useMDXComponent(project.body.code)
 
   return (
     <Layout>
+      <Head>
+        <title>Mattie - {project.title}</title>
+      </Head>
       <Toc />
       <article className="prose mx-auto dark:prose-invert w-full max-w-[calc(36em+36ex)] dark:prose-hr:bg-gradient-to-r dark:prose-hr:from-gray-800 mt-32">
         <div className="grid grid-cols-1 gap-1 text-black dark:text-white not-prose">
