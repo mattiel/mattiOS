@@ -41,7 +41,7 @@ const Toc = () => {
     if (target?.querySelector('h2[id], h3[id]')) {
       setHeadings(Array.from(target.querySelectorAll('h2[id], h3[id]')).map(el => { return el }))
       const observer = new IntersectionObserver(handleEntries, {
-        rootMargin: '0px 0px 54px 0px',
+        rootMargin: '54px 0px 0px 0px',
         threshold: 1
       })
       setActiveSlug(target.querySelector('h2[id]')!)
