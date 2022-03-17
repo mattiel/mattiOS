@@ -12,17 +12,62 @@ As a lead UX Engineer, I managed a small team to ship a product in an agile envi
 elements, designed wireframes, contributed to front end development, and created design system and implementation
 guidelines for developers to streamline processes.
 
-## Design System
-![Components Overview](/tomato/components.webp)
+* * *
+
+## Redesign before official release
+Following the milestone-based roadmap, Tomato went through a series of testing phases. We mainly had an alpha phase for the
+existing customers, and then beta for customers who want to test it out. During these phases and testing MVP
+(Minimum Viable Product), We've collected feedback from beta customers and redesigned the product.
+
 ![Redesign](/tomato/redesign.webp)
-![Colors](/tomato/colors.webp)
-![Icons](/tomato/icons.webp)
-![Design system webpage](/tomato/ds-webpage.webp)
+
+Most users are *Generation X (1965-1980)* or *Baby-boomers (1948-1964)*. They are less familiar with interacting
+with technologies, and often have vision disabilities. **Therefore, the product redesign focused on the following:**
+  - High contrast ratios across UI elements
+  - WCAG 2.1 AA compliant color scales
+  - Clear affordances to Call to Action (CTA)
+  - Accommodate fast data entries and inquires
+  - Familiar workflow but better UX than previous products for migrating customers.
+
+* * *
+
+![Components Overview](/tomato/components.webp)
+## Design System
+I've spent much time having meetings with developers and a director to troubleshoot and resolve issues with bugs,
+visuals, and interactions. Therefore, I needed to create a scalable and maintainable design system to better communicate
+with developers and directors and most importantly, resolve problems and ship features to the end-users quickly.
+
 ![Implementation guideline](/tomato/imp-guide.webp)
+### Creating Guidelines
+As a UX engineer, I was responsible for implementing HTML and CSS layouts and interactions with Javascript and JQuery.
+When I created generic layouts for the developers to copy and paste, the developers struggled on implementing designs
+that deviated from the original layout. Implementation guidelines reduced time spent on troubleshooting layouts and
+components generally caused by mistakes and miscommunication.
+
+![Design system webpage](/tomato/ds-webpage.webp)
+
+### Choosing primary color scale
+The primary color scale was inspired by the leaf color of tomato fruit. Green as a main color instead of red made more
+sense because the color red could be interpreted as a negative meaning.
+
+![Color Gamut](/tomato/color-gamut.webp)
+Color gamut describes a range of colors within a spectrum of colors. In the case above, the sRGB and DCI-P3 represent
+color spaces within human vision. sRGB is the most dominant color space out in the market for regular monitors, and DCI-P3
+is becoming more prevalent. Compared to what humans can see, monitors can output very tiny amount of greens. Which is why
+a lot of the times, greens on a color scale may look neon or blueish.
+
+![Colors](/tomato/colors.webp)
+I've experimented with many color appearance model such as RGB, HSL, HSV, [HSLuv](https://en.wikipedia.org/wiki/HSL_and_HSV#HSLuv),
+and [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02). After referencing colors from various models,
+I've chosen the colors carefully to create a scale that is perceptually uniform and looks more like green.
+
+![Icons](/tomato/icons.webp)
+Icons were created to assist users identify which elements are there for actions. These icons were primarily used in
+conjunction with buttons because important CTAs needed clear affordances for actions that affect user's workflow.
 
 <CH.Code>
-```sass _.globals.scss
-:root {
+  ```sass _globals.css
+  :root {
   --select-padding: var(--size-4) var(--size-10) var(--size-4) calc(var(--size-4) + var(--size-1));
   --select-height: var(--size-12);
   --select-font-size: var(--font-size-3);
@@ -33,9 +78,9 @@ guidelines for developers to streamline processes.
   --select-placeholder-color: var(--color-gray-500)
   --select-width: 100%;
 }
-```
-```sass _select.sass
-.select {
+  ```
+  ```sass _select.css
+  .select {
   font-family: var(--font-noto);
   padding: var(--select-padding);
   height: var(--select-height);
@@ -53,13 +98,23 @@ guidelines for developers to streamline processes.
   background-size: 12px 7px;
 
   &--height-large {
-    --select-height: var(--size-13);
-  }
+  --select-height: var(--size-13);
 }
 
-```
+  &--emphasized {
+  --select-border: 0;
+  --select-background-color: var(--color-blue-100);
+  --select-color: var(--color-blue-900);
+  --select-placeholder-color: var(--color-blue-600);
+}
+}
+  ```
 </CH.Code>
+
 ![Product management modal](/tomato/product-management.webp)
 ![Purchase slip modal](/tomato/purchase-slip.webp)
+![Member List Interaction](/tomato/member-list.webp)
+![Revenue Report](/tomato/report.webp)
+
 
 * * *
