@@ -30,9 +30,7 @@ const Toc = () => {
 
   const handleEntries = useCallback((entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        setActiveSlug(entry.target)
-      }
+      entry.isIntersecting && setActiveSlug(entry.target)
     })
   }, [activeSlug])
 

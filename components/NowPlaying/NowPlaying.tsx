@@ -42,7 +42,7 @@ const NowPlaying = () => {
     if (data && playerTitleRef) {
       const refWidth = playerTitleRef.current?.getBoundingClientRect().width;
       const refParentWidth: any = playerTitleRef.current?.parentElement?.getBoundingClientRect().width;
-      if(refWidth > refParentWidth + 5 && refParentWidth !== undefined) {
+      if(refWidth > refParentWidth && refParentWidth !== undefined) {
         setMarquee(true);
         setMarqueeNudge(refParentWidth - refWidth - 40);
       } else {
@@ -81,10 +81,10 @@ const NowPlaying = () => {
                   x: [0, marqueeNudge, marqueeNudge, 0],
                   y: 0,
                   transition: {
-                    type: "tween",
+                    ease: "linear",
                     duration: 20,
                     repeat: Infinity,
-                    repeatDelay: 1,
+                    repeatDelay: 5,
                     velocity: 0
                   }
                 }

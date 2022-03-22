@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTabs } from "./Tabs";
+import clsx from 'clsx';
 
 export interface TabProps {
   /**
@@ -17,7 +18,9 @@ export const Tab: React.FC<TabProps> = props => {
 
   return (
     <button
-      className={`text-xl transition-colors dark:hover:text-gray-200 hover:text-gray-700 ${activeTab === props.value ? 'dark:text-white' : 'dark:text-gray-500 '}`}
+      className={clsx(
+        "text-xl transition-colors dark:hover:text-gray-200 hover:text-gray-700",
+        activeTab === props.value ? "text-black dark:text-white" : "text-gray-400 dark:text-gray-500")}
       onClick={() => setActiveTab(props.value)}
     >
       {props.label}
