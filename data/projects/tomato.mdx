@@ -1,22 +1,22 @@
 ---
 title: Tomato
 date: 2021-07-12
-summary: An ERP and CRM for small to mid-sized supermarket in South Korea
+summary: An ERP and CRM for small to mid-sized supermarkets in South Korea
 thumbnail: /thumbnails/tomato.webp
 tags: UI/UX, Product Design, Design Systems, Front End Development
 ---
 
 ## In a nutshell
-Tomato is an ERP (Enterprise Resource Planning) to replace old-school management system for non-corporate supermarkets.
+Tomato is an ERP (Enterprise Resource Planning) to replace the old-school management system for non-corporate supermarkets.
 As a lead UX Engineer, I managed a small team to ship a product in an agile environment. I defined the product's visual
-elements, designed wireframes, contributed to front end development, and created design system and implementation
+elements, designed wireframes, contributed to front-end development and created design system and implementation
 guidelines for developers to streamline processes.
 
 * * *
 
 ## Redesign before official release
 Following the milestone-based roadmap, Tomato went through a series of testing phases. We mainly had an alpha phase for the
-existing customers, and then beta for customers who want to test it out. During these phases and testing MVP
+existing customers and then a beta for customers who wanted to test it out. During these phases and testing MVP
 (Minimum Viable Product), We've collected feedback from beta customers and redesigned the product.
 
 ![Redesign](/tomato/redesign.webp)
@@ -31,43 +31,87 @@ with technologies, and often have vision disabilities. **Therefore, the product 
 
 * * *
 
-![Components Overview](/tomato/components.webp)
 ## Design System
 I've spent much time having meetings with developers and a director to troubleshoot and resolve issues with bugs,
 visuals, and interactions. Therefore, I needed to create a scalable and maintainable design system to better communicate
-with developers and directors and most importantly, resolve problems and ship features to the end-users quickly.
+with developers and directors, resolve problems, and quickly ship features to the end-users.
+![Components Overview](/tomato/components.webp)
+![Icons](/tomato/icons.webp)
 
-![Implementation guideline](/tomato/imp-guide.webp)
 ### Creating Guidelines
-As a UX engineer, I was responsible for implementing HTML and CSS layouts and interactions with Javascript and JQuery.
-When I created generic layouts for the developers to copy and paste, the developers struggled on implementing designs
-that deviated from the original layout. Implementation guidelines reduced time spent on troubleshooting layouts and
-components generally caused by mistakes and miscommunication.
+As a UX engineer, I was responsible for implementing HTML and CSS layouts and interactions with Javascript and jQuery.
+When I created generic layouts for the developers to copy and paste, the developers struggled to implement designs
+that deviated from the original format. Implementation guidelines reduced the time spent troubleshooting layouts and
+components caused by mistakes and miscommunication.
+![Implementation guideline](/tomato/imp-guide.webp)
+
+Internal publication of the design system consisting components and their functions, UX patterns, helped me communicate
+with the stakeholders and make design changes efficiently as possible.
 
 ![Design system webpage](/tomato/ds-webpage.webp)
+Using the pattern and layout guidelines as a reference, any implementation that didn't follow the guidelines was easily
+identified during QAs and accelerated hotfix and ship process. It also became a central source and a common language
+to discuss design changes.
 
 ### Choosing primary color scale
-The primary color scale was inspired by the leaf color of tomato fruit. Green as a main color instead of red made more
-sense because the color red could be interpreted as a negative meaning.
+The choice of the primary color was inspired by the leaf color of tomato. Green as the main color instead of red made more
+sense because red is a code for warning, danger, or something negative.
 
 ![Color Gamut](/tomato/color-gamut.webp)
 Color gamut describes a range of colors within a spectrum of colors. In the case above, the sRGB and DCI-P3 represent
 color spaces within human vision. sRGB is the most dominant color space out in the market for regular monitors, and DCI-P3
-is becoming more prevalent. Compared to what humans can see, monitors can output very tiny amount of greens. Which is why
-a lot of the times, greens on a color scale may look neon or blueish.
+is becoming more prevalent. Compared to what humans can see, monitors can output a significantly tiny amount of greens.
+Because of this, green on a color scale may look extremely florescent or blueish.
 
 ![Colors](/tomato/colors.webp)
-I've experimented with many color appearance model such as RGB, HSL, HSV, [HSLuv](https://en.wikipedia.org/wiki/HSL_and_HSV#HSLuv),
-and [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02). After referencing colors from various models,
-I've chosen the colors carefully to create a scale that is perceptually uniform and looks more like green.
+Experimentation with many color appearance model such as RGB, HSL, [HSLuv](https://en.wikipedia.org/wiki/HSL_and_HSV#HSLuv),
+and [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02). After referencing colors from various models, I've chosen the
+colors carefully to create a perceptually uniform scale and focused on selecting and tweaking the colors as close to the
+green people would normally in the non-digital world.
 
-![Icons](/tomato/icons.webp)
-Icons were created to assist users identify which elements are there for actions. These icons were primarily used in
-conjunction with buttons because important CTAs needed clear affordances for actions that affect user's workflow.
+### Components, CSS and Tokens
+We had no front-end tech stack
+
+```js breadcrumb.js
+function Breadcrumb(data, param) {
+  this.data = data;
+  this.param = param;
+  this.elem = document.createElement('div');
+
+  this.createSteps = () => {
+    if(data) this.data.map((step) => this.addStep(step));
+  }
+
+  // ... Redacted
+
+  this.addStep = (name) => {
+    const el = document.createElement('a');
+    this.elem.append(el);
+    el.classList.add('breadcrumb__step', 'breadcrumb__step--active');
+    if(el.previousElementSibling) el.previousElementSibling.classList.remove('breadcrumb__step--active');
+    el.innerHTML = name;
+    el.addEventListener('click', (e) => {
+      e.target.classList.add('breadcrumb__step--active');
+      while (e.target.nextElementSibling) {
+        e.target.nextElementSibling.parentNode.removeChild(e.target.nextElementSibling);
+      }
+    })
+  }
+
+  this.init = (target) => {
+    target = document.querySelector(target);
+    this.elem.classList.add('breadcrumb');
+    this.createSteps();
+    target.append(this.elem);
+    if(this.param == null) this.param = {};
+  }
+}
+```
+
 
 <CH.Code>
-  ```sass _globals.css
-  :root {
+```sass _globals.scss
+:root {
   --select-padding: var(--size-4) var(--size-10) var(--size-4) calc(var(--size-4) + var(--size-1));
   --select-height: var(--size-12);
   --select-font-size: var(--font-size-3);
@@ -78,9 +122,9 @@ conjunction with buttons because important CTAs needed clear affordances for act
   --select-placeholder-color: var(--color-gray-500)
   --select-width: 100%;
 }
-  ```
-  ```sass _select.css
-  .select {
+```
+```sass _select.scss
+.select {
   font-family: var(--font-noto);
   padding: var(--select-padding);
   height: var(--select-height);
@@ -98,15 +142,15 @@ conjunction with buttons because important CTAs needed clear affordances for act
   background-size: 12px 7px;
 
   &--height-large {
-  --select-height: var(--size-13);
-}
+    --select-height: var(--size-13);
+  }
 
   &--emphasized {
-  --select-border: 0;
-  --select-background-color: var(--color-blue-100);
-  --select-color: var(--color-blue-900);
-  --select-placeholder-color: var(--color-blue-600);
-}
+    --select-border: 0;
+    --select-background-color: var(--color-blue-100);
+    --select-color: var(--color-blue-900);
+    --select-placeholder-color: var(--color-blue-600);
+  }
 }
   ```
 </CH.Code>
