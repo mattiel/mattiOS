@@ -19,6 +19,18 @@ module.exports = {
               height: '1px',
               borderWidth: 0,
               background: `linear-gradient(to right, ${theme('colors.gray.50')}, ${theme('colors.transparent')})`,
+            },
+            code: {
+              color: theme('colors.pink.600'),
+              background: theme('colors.gray.100'),
+              padding: `${theme('spacing.1' )} ${theme('spacing.2')}`,
+              borderRadius: theme('spacing.2'),
+              '&::before': {
+                content: `''`
+              },
+              '&::after': {
+                content: `''`
+              },
             }
           }
         },
@@ -38,9 +50,15 @@ module.exports = {
             },
           }
         },
-        dark: {
-          hr: {
-            background: `linear-gradient(to right, ${theme('colors.gray.900')}, ${theme('colors.transparent')})`,
+        invert: {
+          css: {
+            hr: {
+              background: `linear-gradient(to right, ${theme('colors.gray.900')}, ${theme('colors.transparent')})`,
+            },
+            code: {
+              color: theme('colors.pink.500'),
+              background: theme('colors.gray.900'),
+            }
           }
         }
       })
