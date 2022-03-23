@@ -69,8 +69,10 @@ and [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02). After referencing colors
 colors carefully to create a perceptually uniform scale and focused on selecting and tweaking the colors as close to the
 green people would normally in the non-digital world.
 
-### Components, CSS and Tokens
-We had no front-end tech stack
+### Component Implementation
+We had no component-oriented front-end tech stack for the project. The only technology I was able to use is SCSS and pure
+javascript or jQuery. Since interactive components aren't powered by frameworks like React or Vue, for example, I've
+created a simple javascript module to create reusable components like so in the code below:
 
 ```js breadcrumb.js
 function Breadcrumb(data, param) {
@@ -88,7 +90,8 @@ function Breadcrumb(data, param) {
     const el = document.createElement('a');
     this.elem.append(el);
     el.classList.add('breadcrumb__step', 'breadcrumb__step--active');
-    if(el.previousElementSibling) el.previousElementSibling.classList.remove('breadcrumb__step--active');
+    if(el.previousElementSibling)
+      el.previousElementSibling.classList.remove('breadcrumb__step--active');
     el.innerHTML = name;
     el.addEventListener('click', (e) => {
       e.target.classList.add('breadcrumb__step--active');
@@ -107,7 +110,15 @@ function Breadcrumb(data, param) {
   }
 }
 ```
+This way, if the HTML/CSS of a Breadcrumb component is changed, I can refer to this specific file, and changes will be
+updated across multiple pages using this component.
 
+### Styling with SCSS and BEM
+I tried many CSS methodologies in an attempt to be efficient and be clearer with the interfaces we are implementing.
+First off, I started the project with self-wrote utility classes to style every page. However, when working with
+the developers, it was hard to refactor and make changes to HTML and CSS because component/layout level changes don't
+change with CSS. Developers, including myself, had to identify changes and apply appropriate utilities to make changes
+manually.
 
 <CH.Code>
 ```sass _globals.scss
@@ -152,13 +163,30 @@ function Breadcrumb(data, param) {
     --select-placeholder-color: var(--color-blue-600);
   }
 }
-  ```
+```
 </CH.Code>
 
-![Product management modal](/tomato/product-management.webp)
-![Purchase slip modal](/tomato/purchase-slip.webp)
-![Member List Interaction](/tomato/member-list.webp)
-![Revenue Report](/tomato/report.webp)
+The ultimate methodology I've followed was BEM (Block Element Modifier) and SCSS to break down blocks into atoms.
+One thing I like about BEM is that its naming convention is consistent. Prefixes such as `__` and `--` are and
+classes are designed to be non-dependent on each other. Which makes it easier to maintain and understand.
+CSS took full advantage of design tokens such as sizing, typographic properties, and colors by utilizing pure CSS
+variables - making it more maintainable.
 
+Example above used CSS variables to style the select element and modifiers to style it. It may seem verbose, but having
+over approximately 10,000+ lines of code, tokenization and verboseness made it easy to understand and stylize.
 
 * * *
+
+## Design outcome
+![Member List Interaction](/tomato/member-list.webp)
+![Product management modal](/tomato/product-management.webp)
+![Purchase slip modal](/tomato/purchase-slip.webp)
+![Revenue Report](/tomato/report.webp)
+
+* * *
+
+## Press
+- [Seoul Economy Daily](https://www.sedaily.com/NewsView/1Z7YE4IT4D)
+- [News Today](https://www.news2day.co.kr/article/20210720500008)
+
+
