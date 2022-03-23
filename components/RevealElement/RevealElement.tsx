@@ -21,8 +21,10 @@ const RevealElement: React.FC<RevealElementProps> = ({ children, className }) =>
       opacity: 1,
       transform: 'translateY(0%)',
       transition: {
-        easeOut: [0.4, 0.9, 1],
+        ease: "easeInOut",
         duration: .5,
+        opacity: [0, .2, .4, 1],
+        transform: [0, .7, .9, 1]
       }
     }
   }
