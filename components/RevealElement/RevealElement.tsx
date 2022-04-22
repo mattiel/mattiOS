@@ -13,18 +13,13 @@ const RevealElement: React.FC<RevealElementProps> = ({ children, className }) =>
   const variants: Variants = {
     offscreen: {
       clipPath: 'polygon(0% 100%,100% 100%,100% 100%,0% 100%)',
-      transform: 'translateY(-10%)',
-      opacity: 0,
     },
     onscreen: {
       clipPath: 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)',
-      opacity: 1,
-      transform: 'translateY(0%)',
       transition: {
-        ease: "easeInOut",
-        duration: .5,
-        opacity: [0, .2, .4, 1],
-        transform: [0, .7, .9, 1]
+        ease: "easeOut",
+        duration: .3,
+        transform: [0, .7, .9, 1],
       }
     }
   }
@@ -36,6 +31,20 @@ const RevealElement: React.FC<RevealElementProps> = ({ children, className }) =>
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.1 }}
+      variants={{
+        offscreen: {
+          opacity: 0,
+          transform: 'translateY(10%)',
+        },
+        onscreen: {
+          opacity: 1,
+          transform: 'translateY(0%)',
+          transition: {
+            ease: "easeOut",
+            duration: .6
+          }
+        }
+      }}
     >
       <motion.div variants={variants}>
         {children}

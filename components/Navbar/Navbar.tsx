@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 
 const links = [
-  { href: '/resume', label: 'Resume' },
+  { href: '/resume.pdf', label: 'Resume' },
   { href: 'mailto:hello@mattiel.dev', label: 'Contact' },
 ]
 

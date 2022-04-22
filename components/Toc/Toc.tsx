@@ -18,7 +18,6 @@ const Toc = () => {
           href={href}
           className={clsx(
             "leading-relaxed",
-
           )}
         >
           {title}
@@ -35,12 +34,12 @@ const Toc = () => {
   }, [activeSlug])
 
   React.useEffect(() => {
-    const target = document.body.querySelector('article.prose')
-    if (target?.querySelector('h2[id], h3[id]')) {
+    const target = document.body.querySelector('article.prose')!
+    if (target.querySelector('h2[id], h3[id]')) {
       setHeadings(Array.from(target.querySelectorAll('h2[id], h3[id]')).map(el => { return el }))
       const observer = new IntersectionObserver(handleEntries, {
-        rootMargin: '54px 0px 0px 0px',
-        threshold: 1
+        rootMargin: '0px',
+        threshold: [1],
       })
       setActiveSlug(target.querySelector('h2[id]')!)
       Array.from(target.querySelectorAll('h2[id], h3[id]')).forEach(element => observer.observe(element))
@@ -50,7 +49,7 @@ const Toc = () => {
 
   return (
     <aside className="hidden 2xl:block relative px-12 h-full w-full overflow-hidden max-w-xs">
-      <nav className="top-36 fixed max-w-full w-64 pr-2">
+      <summary className="top-36 fixed max-w-full w-64 pr-2">
         <p className="text-white text-sm font-medium mb-4">
           On this page
         </p>
@@ -68,7 +67,7 @@ const Toc = () => {
             })
           }
         </ul>
-      </nav>
+      </summary>
     </aside>
   );
 };

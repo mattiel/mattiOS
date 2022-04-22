@@ -27,6 +27,7 @@ const Scroller: React.FC = ({ children }) => {
     entries.forEach(entry => {
       entry.isIntersecting && setCurrentIndex(Array.from(ref.current.children || []).indexOf(entry.target))
     })
+
   }
 
   function addElementWidths(elements: HTMLCollection) {
@@ -66,7 +67,7 @@ const Scroller: React.FC = ({ children }) => {
       {/*{currentIndex !== widths.length - 1 && <div className="absolute top-0 right-0 h-full w-[2%] bg-gradient-to-l from-white dark:from-black" />}*/}
       <AnimatePresence>
         <div className="hidden lg:flex items-center absolute top-0 w-full flex items-center top-1/2 transform -translate-y-1/2">
-          { ref?.current?.scrollLeft > 0 && (
+          { currentIndex > 0 && (
             <motion.button
               key="left"
               initial={{ opacity: 0, scale: 0 }}
@@ -82,8 +83,7 @@ const Scroller: React.FC = ({ children }) => {
               </svg>
             </motion.button>
           )}
-
-          { currentIndex !== widths.length - 1 && (
+          { currentIndex < widths.length - 1 && (
             <motion.button
               key="right"
               initial={{ opacity: 0, scale: 0 }}
