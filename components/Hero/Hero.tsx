@@ -33,8 +33,12 @@ const Hero = () => {
               📍 Los Angeles, CA
             </a>
 
-            <a className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory bg-gray-50shrink-0 dark:bg-blue-900 dark:border-blue-700 border pl-3 pr-4 rounded-full">
-              👀 For opportunities
+            <a
+              className="inline-flex items-center h-8 text-sm snap-x snap-start snap-mandatory bg-gray-50shrink-0 dark:bg-blue-900 dark:border-blue-700 border pl-3 pr-4 rounded-full"
+              href="https://canoo.com"
+              rel="noreferrer"
+            >
+              🚗 Upcoming Product Designer @ Canoo
             </a>
             <NowPlaying />
           </div>
