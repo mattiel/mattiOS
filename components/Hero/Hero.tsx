@@ -38,7 +38,7 @@ const Hero = () => {
               href="https://canoo.com"
               rel="noreferrer"
             >
-              🚗 Upcoming Product Designer @ Canoo
+              🚗 Product Designer @ Canoo
             </a>
             <NowPlaying />
           </div>
